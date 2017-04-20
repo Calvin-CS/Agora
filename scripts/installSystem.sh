@@ -41,7 +41,7 @@ echo -e "Finished installing guacamole\n"
 # Clone Agora repo to /home folder.
 echo -e "Get Agora from github"
 cd /home >> $logFile 2>&1
-git clone https://github.com/solsaver/Agora >> $logFile 2>&1
+git clone https://github.com/Calvin-CS/Agora >> $logFile 2>&1
 echo -e "Finished configuring Agora\n"
 
 

@@ -1,0 +1,7 @@
+1. To install Agora, simply run 'sudo ./installSystems.sh' when in the scripts directory
+
+2. After installing Agora, please do the following:
+  a. Install additional languages/libraries you need for the projects you will be hosting.
+  b. Create any new sub_pages on the website that you would like to have using the provided template file.
+  c. Edit the file 'webapps/ROOT/index.jsp' to change the domain name in the redirect to your chosen domain name.
+

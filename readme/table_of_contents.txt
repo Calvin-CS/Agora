@@ -1,0 +1,14 @@
+This file provides a short summary of each of the other files found in this directory
+
+add_new_language.txt
+  Detailed instructions describing the process required to add a new language to Agora.
+
+add_new_project.txt
+  Detailed instructions describing the process required to add a new project to Agora.
+
+customize_number_of_connections.txt
+  Detailed instructions describing the process required to edit the maximum number of concurrent connections to Agora.
+
+make_new_subpage_from_template.txt
+  Detailed instructions describing the process required to add new pages to Agora.
+

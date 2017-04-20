@@ -1,0 +1,10 @@
+<configs>
+    <config name='default1' protocol='vnc'>
+	<param name="hostname" value="localhost" />
+	<param name='port' value='60042'/>
+    </config>
+    <config name='default2' protocol='vnc'>
+	<param name="hostname" value="localhost" />
+	<param name='port' value='60043'/>
+    </config>
+</configs>

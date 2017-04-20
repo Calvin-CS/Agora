@@ -1,0 +1,20 @@
+<user-mapping>
+	<authorize username="admin" password="corwindrewagora15!">
+		<connection name="AgoraServer">
+			<protocol>vnc</protocol>
+			<param name="hostname">localhost</param>
+			<param name="port">5900</param>
+			<param name="autoretry">1</param>
+			<param name="password">agora1</param>
+		</connection>
+	</authorize>
+	<authorize username="admin2" password="corwindrewagora15!">
+		<connection name="AgoraServer2">
+			<protocol>vnc</protocol>
+			<param name="hostname">localhost</param>
+			<param name="port">5901</param>
+			<param name="autoretry">1</param>
+			<param name="password">agora1</param>
+		</connection>
+	</authorize>
+</user-mapping>

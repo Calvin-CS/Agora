@@ -1,0 +1,130 @@
+body {
+  margin: 0px;
+}
+
+#mainbody {
+  height: 500px;
+}
+
+#header {
+  background-color: #97252b;
+  text-align: center;
+  height: 60px;
+}
+
+#header h1 {
+  margin: auto;
+}
+
+#header img {
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+#content {
+  background-color: #ffffff;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#projects {
+  float: left;
+  width: 100%;
+}
+
+.firstParagraph {
+  margin-top: 100px;
+}
+
+.project-section div {
+  display: inline-block;
+  float: left;
+  clear: both;
+}
+
+.project-section div div {
+  display: inline-block;
+  float: left;
+  clear: both;
+}
+
+.project-section div div figure img {
+  width: 300px;
+  height: 200px;
+}
+
+.project-section {
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px; 
+  margin: 2px;
+  height: auto;
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+.project-info p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.runButton {
+  cursor: pointer;
+  cursor: hand;
+}
+
+button.accordion {
+  background: #f97779;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f97779), to(#97252b));
+  background: -moz-linear-gradient(#f97779, #97252b);
+  background: linear-gradient(#f97779, #97252b);
+  border: solid 1px #be2424;
+  border-bottom: solid 3px #bd2524;
+  box-shadow: inset 0 0 0 1px #e67e7b;
+  color: #fff;
+  text-shadow: 0 1px 0 #bd2524;
+}
+
+button.accordion:hover {
+  background: #97252b;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#97252b), to(#f97779));
+  background: -moz-linear-gradient(#97252b, #f97779);
+  background: linear-gradient(#97252b, #f97779);
+  border: solid 1px #be2424;
+  border-bottom: solid 3px #bd2524;
+  box-shadow: inset 0 0 0 1px #e67e7b;
+}
+
+button.accordion:active {
+  background: #97252b;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#97252b), to(#f97779));
+  background: -moz-linear-gradient(#97252b, #f97779);
+  background: linear-gradient(#97252b, #f97779);
+  border: solid 1px #be2424;
+  box-shadow: inset 0 10px 15px 0 #bd2524;
+}
+
+.project-section div div.accordion-panel {
+  background-color: #fff;
+  padding: 0 18px;
+  display: none;
+}
+
+/* Too narrow to support three columns */
+@media all and (max-width: 1050px) {
+  #projects {
+    flex-direction: column;
+  }
+
+  #projects {
+  /* Return them to document order */
+    order: 0;
+  }
+  
+  #projects {
+    min-height: 50px;
+    max-height: 50px;
+  }
+}

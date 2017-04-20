@@ -1,0 +1,27 @@
+1. The template file is located in /home/Agora/guacamole-client/guacamole/src/main/webapp/app/home/templates.
+   It is called templatePage.html
+
+2. Make a copy of this file in the same directory and name it whatever you want that seems appropriate as the page's name.
+
+3. Edit the file /home/Agora/guacamole-client/guacamole/src/main/webapp/app/index/config/indexRouteConfig.js, 
+   adding another .when() block after the others, changing only the value for "bodyClassName" and the name of the html file. 
+   Preferably, you should make the bodyClassName value the same as the name of the html file for the sake of consistency. 
+   Save your changes.
+
+4. Edit the file /home/Agora/guacamole-client/guacamole/webapp/app/home/controllers/progListController.js. Add a new entry 
+   to the $scope.progListItems dictionary/JSON object, using the "bodyClassName" value that you used previously as the key. 
+   The value is an array of more dictionaries/JSON objects that each hold the necessary information of any programs on that subpage, 
+   following the example of the preexisting entries, with the following possible data fields (required fields are preceded with a *):
+     * id: a string containing the name of the file to be executed (if the project is many files, use the one that you would type 
+      in the command line to run it yourself)
+     * name: the name of the program that you want to show up on the webpage
+     - details: a description of the program
+     - image: Location of the thumbnail for the program ($scope.picturePath + "nameOfThumbnail.png"). 
+      Put your thumbnail image in the /home/Agora/guacamole-client/guacamole/src/main/webapp/images/ folder so that Angular can find your picture.
+     - instructions: some instructions on how to use your program if necessary
+     - author: name of the creator of the program
+     - date: date added to the page
+
+5. Edit your copied html file, looking for the three fields marked by **replaceThisText**. Replace these markers with the indicated information.
+
+6. That's it! Enjoy your new subpage!

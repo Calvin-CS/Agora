@@ -1,0 +1,13 @@
+1. Install the required packages for the new language.
+
+2. In 'Agora/scripts/start.sh', add a new if block for the new language.
+     - If these projects run in a console, or use a console to run, we recommend including 
+       a way to close access to the console when the project completes execution.  We
+       accomplished this through the general format shown below.
+       'xterm -fg white -bg black -e "bash -c \"clear; <run_the_executable>; read -n 1\"" &'
+       This also creates the console window using a black background and white text so that it
+       blends in nicely with the guacamole background.
+
+3. We recommend creating a simple hello-world project using this language to test that
+   the language was installed and runs correctly.
+

@@ -1,0 +1,155 @@
+<!--
+   Copyright (C) 2015 Glyptodon LLC
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+-->
+<html lang="en" ng-app="home">
+  <head>
+    <title>Example Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+  <body>
+    <div id="content">
+      <div id="header">
+        <a href="http://www.calvin.edu"><img src="http://www.calvin.edu/global/images/calvin-college-inverse.svg" alt="Calvin College" width="170" height="47"></a>
+        <h1>Example Page</h1>
+        <div class="invisible" style="display:none">
+          <guac-group-list-filter connection-groups="rootConnectionGroups"
+            filtered-connection-groups="filteredRootConnectionGroups"
+            placeholder="Rawr"
+            connection-properties="filteredConnectionProperties"
+            connection-group-properties="filteredConnectionGroupProperties"></guac-group-list-filter>
+          <guac-group-list
+            context="context"
+            connection-groups="filteredRootConnectionGroups"
+            connection-template="'app/home/templates/connection.html'"
+            connection-group-template="'app/home/templates/connectionGroup.html'"
+            page-size="250"></guac-group-list>
+        </div>
+      </div>
+      <div id="mainbody" ng-controller="progListController">
+        <div id="projects">
+          <div id="project-list" class="project-section" ng-controller="progListController">
+            <div ng-repeat="progListItem in progListItems['example']">
+              <div class="program-list-item">
+                <div>
+                  <figure style="float: left;">
+                    <img ng-src="{{progListItem.image}}"/>
+                  </figure>
+                  <div class="project-info" style="clear: none; margin-top: 18px; padding-left: 20px;">
+                    <p>{{progListItem.name}}</p>
+                    <p>Author: {{progListItem.author}}</p>
+                    <p>Date Added: {{progListItem.date}}</p>
+                    <div><img  id={{progListItem.id}} class="runButton" onclick="progListItemClick(event);" href="" ng-click="reload();{{loadProgram('example')}}" ng-src="{{runButton}}" style="height: 35px; width: 50px;"/></div>
+                  </div>
+                  <div style="clear: left;">
+                    {{progListItem.details}}
+                  </div>
+                  <div style="clear: left;">
+                    <div><button class="accordion" onclick="toggleInstructions(event)">Instructions</button></div>
+                    <div class="accordion-panel">
+                        {{progListItem.instructions}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="program-item-details" style="display:none">
+                <p>{{progListItem.details}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>
+    /**
+     * Clicking on a program in the list will trigger a call to the Agora Servlet (which runs start.sh).
+     * and store the program information for the program we want to run
+     *
+     * Will also reload the page (see angular reload function in "webapps/app/home/controllers/homeController.js")
+     */
+    function progListItemClick(event) {
+      var myId = event.target.id;
+      var progName = event.target.parentElement.parentElement.firstElementChild.textContent;
+      
+      // Send the displayed program name (e.g. "Python Distribute") as a parameter to the servlet.
+      // Receives back a unique identifier of the process started as responseText.
+      $.get('AgoraServlet',{program:progName},function(responseText) {
+        var myPid = responseText;
+        if (myPid == "0") {
+          alert("There are no available displays.  Please try again later.");
+        }
+        else
+        {
+          // Kill the previous program by this user
+          killPrevious();
+
+          sessionStorage.setItem("thisPid", myPid);
+          sessionStorage.setItem("thisProgName", myId);
+        }
+      })
+      .fail(function() { alert("Error! Failed get from AgoraServlet."); });
+    }
+
+    /**
+     * Kill previous program that was run by this user
+     */
+    function killPrevious() {
+      var pid = sessionStorage.getItem("previousPid");
+      if (pid) {
+        $.get('KillServlet',{pid:pid},function(responseText) {
+          var newVar = responseText;
+          sessionStorage.setItem("previousPid", null);
+        });
+      }
+    }
+
+    /**
+     * Kill my previous process when tab is closed using the pid that was stored earlier.
+     */
+    $(window).on('beforeunload', function() {
+      killPrevious();
+      console.log("Unload");
+    });
+
+      function toggleInstructions(event) {
+        event.target.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = event.target.parentElement.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      } 
+
+      function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

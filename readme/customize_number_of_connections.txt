@@ -1,0 +1,2 @@
+1. To edit the number of allowed concurrent connections to the server, modify the
+   *max_connections* variable in 'Agora/scripts/get_next_port.py'

@@ -1,0 +1,72 @@
+<!--
+   Copyright (C) 2015 Glyptodon LLC
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+-->
+<html>
+  <head>
+    <title>Agora - Home</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+  <body>
+    <div id="content">
+      <div id="header">
+        <a href="http://www.calvin.edu"><img src="http://www.calvin.edu/global/images/calvin-college-inverse.svg" alt="Calvin College" width="170" height="47"></a>
+        <h1>Agora: Project Showcase</h1>
+        <a href="#/about" style="float:right; margin-right: 5px;">About</a>
+      </div>
+
+      <div id="mainbody">
+        <div id="projects">
+          <div id="example" class="project-section">
+            <div>
+	      <a href="#/example">More...</a> 
+              <p>Example Page and Project</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style='text-align:center'>
+        <h3>Agora is hosted and maintained by the <a href="http://cs.calvin.edu">Calvin College CS Department</a></h3>
+      </div>
+    </div>
+    <script>
+    /**
+     * Kill all previous programs that were run by this user
+     */
+    function killPrevious() {
+      var pid = sessionStorage.getItem("previousPid");
+      if (pid) {
+        $.get('KillServlet',{pid:pid},function(responseText) {
+          var newVar = responseText;
+          sessionStorage.setItem("previousPid", null);
+        });
+      }
+    }
+
+    /**
+     * Kill all of my processes when tab is closed using the pids that were stored earlier.
+     */
+    $(window).on('beforeunload', function() {
+      killPrevious();
+      console.log("Unload");
+    });
+    </script>
+  </body>
+</html>

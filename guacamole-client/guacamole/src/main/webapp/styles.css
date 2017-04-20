@@ -1,0 +1,5 @@
+/*
+ * This file is intentionally left empty.  it exists because tomcat(?) wants it to?
+ * Without this file, an error is thrown upon loading the pages (normally, but not always),
+ * so this avoids that error being logged in the browser console.
+ */

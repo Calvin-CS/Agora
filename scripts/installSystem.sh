@@ -99,13 +99,13 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo -e "Installing Docker"
   echo -e "If anything fails here, please refer to Docker's documentation for help (https://docs.docker.com/engine/installation/)"
-  apt-get install apt-transport-https ca-certificates curl software-properties-common >> $logFile 2>&1
+  apt-get install -y apt-transport-https ca-certificates curl software-properties-common >> $logFile 2>&1
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - >> $logFile 2>&1
   echo -e "Verify the fingerprint is '9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88'"
   apt-key fingerprint 0EBFCD88
   add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" >> $logFile 2>&1
   apt-get update >> $logFile 2>&1
-  apt-get install docker-ce >> $logFile 2>&1
+  apt-get install -y docker-ce >> $logFile 2>&1
   echo -e "Test that docker was successfully installed"
   docker run hello-world
   groupadd docker

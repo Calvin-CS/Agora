@@ -3,4 +3,4 @@
 *.war
 logs/*
 pids/recent.txt
-resources/current_port.txt
+resources/current_ports.txt

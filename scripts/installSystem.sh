@@ -68,7 +68,7 @@ echo -e "Finished setting up tomcat7\n"
 # Build the maven project then copy the resulting war file to the webapps directory.
 echo -e "Build the maven project"
 cd /home/Agora/guacamole-client/guacamole >> $logFile 2>&1
-./buildeploy.sh >> $logFile 2>&1
+./builddeploy.sh >> $logFile 2>&1
 echo -e "Finished building the maven project\n"
 
 
@@ -88,8 +88,8 @@ echo -e "Finished setting up permissions\n"
 # Install Docker
 # Ask if the user wants Docker installed
 echo -e "Optional Installations"
-echo -e "Docker is a useful package manager that will help to manage supported language and library versions."
-echo -e "This has only been tested for Ubuntu 16.04, but may work for other distributions"
+echo -e "Docker is a useful framework for building and deploying applications in a standalone container that will help to manage supported language and library versions."
+echo -e "This has only been tested for Ubuntu 16.04, but may work for other distributions."
 read -p "Would you like to install Docker? Enter 'y' or 'n': "
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]

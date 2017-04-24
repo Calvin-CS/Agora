@@ -75,12 +75,13 @@ echo -e "Finished building the maven project\n"
 # Set up some permissions and create necessary folders and files
 echo -e "Set up permissions and create necessary folders and files"
 cd /home/Agora >> $logFile 2>&1
-chmod 666 pids
+chmod 777 pids
 touch pids/recent.txt
 chmod 666 pids/recent.txt
+chmod 777 resources
 chmod 666 resources/current_ports.txt
 mkdir /home/Agora/logs
-chmod 666 /home/Agora/logs
+chmod 777 /home/Agora/logs
 touch /home/Agora/logs/start_sh.log
 chmod 666 /home/Agora/logs/start_sh.log
 echo -e "Finished setting up permissions\n"

@@ -88,7 +88,9 @@ echo -e "Finished setting up permissions\n"
 # Install Docker
 # Ask if the user wants Docker installed
 echo -e "Optional Installations"
-read -p "Would you like to install Docker?\nDocker is a useful package manager that will help to manage supported language and library versions\nThis has only been tested for Ubuntu 16.04, but may work for other distributions" -n 1 -r
+echo -e "Docker is a useful package manager that will help to manage supported language and library versions."
+echo -e "This has only been tested for Ubuntu 16.04, but may work for other distributions"
+read -p "Would you like to install Docker? Enter 'y' or 'n': "
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -114,4 +116,4 @@ echo -e "Restart guacd and tomcat7"
 service guacd start >> $logFile 2>&1
 service tomcat7 restart >> $logFile 2>&1
 echo -e "Agora has been deployed, navigate to localhost:8080 (or <domain_name>:8080) to see the results"
-echo -e "For documentation on use/custimization, see the /home/Agora/readme folder."
+echo -e "For documentation on use/customization, see the /home/Agora/readme folder."

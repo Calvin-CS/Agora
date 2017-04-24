@@ -80,6 +80,7 @@ chmod 777 pids
 touch pids/recent.txt
 chmod 666 pids/recent.txt
 chmod 777 resources
+touch resources/current_ports.txt
 chmod 666 resources/current_ports.txt
 mkdir /home/Agora/logs
 chmod 777 /home/Agora/logs

@@ -1,7 +1,3 @@
-logs/*
 *.swp
 *.swo
 *.war
-pids/*.pid
-install_log.txt
-/webaapps/agoraguac.war

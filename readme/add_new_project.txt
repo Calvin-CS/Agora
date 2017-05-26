@@ -1,3 +1,5 @@
+0. Projects, by default, are in /home/Agora/projects.
+
 1. Copy the new project into a new directory that is accessible to this computer,
    keeping note of the absolute reference to:
      - The main file or project executable which will be referred to as <executable>.
@@ -8,10 +10,10 @@
      - We recommend creating a <language> directory in the Agora base directory, and then
        placing all <language> projects in their own directories within this directory.
      - If this is the first project that is being added to Agora that uses <language>,
-       follow the steps shown in 'Agora/readme/add_new_language.txt'
+       follow the steps shown in /home/Agora/readme/add_new_language.txt
 
 3. Determine the information that should be displayed on the webpage for this project.
-   This information will be stored in 'Agora/guacamole-client/guacamole/src/main/webapp/app/home/controllers/progListController.js'.
+   This information will be stored in /home/Agora/guacamole-client/guacamole/src/main/webapp/app/home/controllers/progListController.js.
    This information is described below: (* means required, - means optional)
      * id: a string containing the name of the file to be executed (if the project is many files, use the one that you would type 
       in the command line to run it yourself)
@@ -25,8 +27,8 @@
      - date: date added to the page
    By modifying this file, you will change which projects appear on the sub-pages.
 
-4. Add the project to 'Agora/resources/project_listing.txt' using the following format.
+4. Add the project to /home/Agora/resources/project_listing.txt using the following format.
    <display_name>,<directory>,<executable>,<lang>
 
-5. Rebuild the project by running 'sudo ./builddeploy.sh' from the 'Agora/guacamole-client/guacamole' directory
+5. Rebuild the project by running 'sudo ./builddeploy.sh' from the /home/Agora/guacamole-client/guacamole directory
 

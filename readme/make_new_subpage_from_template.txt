@@ -22,6 +22,8 @@
      - author: name of the creator of the program
      - date: date added to the page
 
-5. Edit your copied html file, looking for the three fields marked by **replaceThisText**. Replace these markers with the indicated information.
+5. Edit your copied html file from step 2 above, looking for the three fields marked by **replaceThisText**. Replace these markers with the indicated information.
 
-6. That's it! Enjoy your new subpage!
+6. Go to /home/Agora/guacamole-client/guacamole/ and run ./builddeploy.sh.
+
+7. That's it! Enjoy your new subpage!

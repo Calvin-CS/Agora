@@ -8,7 +8,7 @@
    Preferably, you should make the bodyClassName value the same as the name of the html file for the sake of consistency. 
    Save your changes.
 
-4. Edit the file /home/Agora/guacamole-client/guacamole/webapp/app/home/controllers/progListController.js. Add a new entry 
+4. Edit the file /home/Agora/guacamole-client/guacamole/src/main/webapp/app/home/controllers/progListController.js. Add a new entry 
    to the $scope.progListItems dictionary/JSON object, using the "bodyClassName" value that you used previously as the key. 
    The value is an array of more dictionaries/JSON objects that each hold the necessary information of any programs on that subpage, 
    following the example of the preexisting entries, with the following possible data fields (required fields are preceded with a *):

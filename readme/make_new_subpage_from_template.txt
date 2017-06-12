@@ -24,6 +24,9 @@
 
 5. Edit your copied html file from step 2 above, looking for the three fields marked by **replaceThisText**. Replace these markers with the indicated information.
 
-6. Go to /home/Agora/guacamole-client/guacamole/ and run ./builddeploy.sh.
+6. In /home/Agora/guacamole-client/guacamole/src/main/webapp/app/home/templates/home.html, add an entry similar to the 'examples' entry.
+   This entry provides the link from the main page to the subpage.  Put your template name in for the id= value and the href= value.
 
-7. That's it! Enjoy your new subpage!
+7. Go to /home/Agora/guacamole-client/guacamole/ and run ./builddeploy.sh.
+
+8. That's it! Enjoy your new subpage!
